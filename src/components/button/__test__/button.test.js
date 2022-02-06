@@ -20,7 +20,7 @@ test("Button status", () => {
     expect(buttonElement).toBeEnabled();
 
     // check that the checkBox starts with unChecked box
-    const checkBoxElement = screen.getByRole('checkbox');
+    const checkBoxElement = screen.getByRole('checkbox', { name: 'Disable Button' });
     expect(checkBoxElement).not.toBeChecked();
 
     fireEvent.click(checkBoxElement);

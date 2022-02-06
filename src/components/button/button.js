@@ -49,7 +49,13 @@ const Button = () => {
             >
                 {text}
             </button>
-            <input type="checkbox" name="check" onClick={handleCheckBox} />
+            <input
+                type="checkbox"
+                name="check"
+                onClick={handleCheckBox}
+                id="disable-button-checkbox"
+            />
+            <label htmlFor="disable-button-checkbox"> Disable Button </label>
         </div>
     );
 };
