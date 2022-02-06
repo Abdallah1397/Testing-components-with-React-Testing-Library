@@ -1,29 +1,56 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-// Button Component 
+// Button Component
 const Button = () => {
     // Button State
     const [buttonState, setButtonState] = useState({
-        color: 'red',
-        text: 'Change to blue',
-    })
+        color: "red",
+        text: "Change to blue",
+        disabled: false,
+    });
     // destructuring state object
-    const { color, text } = buttonState;
+    const { color, text, disabled } = buttonState;
     // onClick function to toggle button
     const onClick = () => {
-        if (color === 'red' && text === 'Change to blue') {
+        if (color === "red" && text === "Change to blue") {
             setButtonState({
-                color: 'blue',
-                text: 'Change to red',
-            })
+                ...buttonState,
+                color: "blue",
+                text: "Change to red",
+            });
+        } else {
+            setButtonState({
+                ...buttonState,
+                color: "red",
+                text: "Change to blue",
+            });
         }
-    }
+    };
+    // onCheckbox Cliced
+    const handleCheckBox = () => {
+        if (disabled === false) {
+            setButtonState({
+                ...buttonState,
+                disabled: true,
+            });
+        } else {
+            setButtonState({
+                ...buttonState,
+                disabled: false,
+            });
+        }
+    };
     return (
         <div>
-            <button style={{ backgroundColor: color }} onClick={onClick}>
+            <button
+                style={{ backgroundColor: color }}
+                onClick={onClick}
+                disabled={disabled}
+            >
                 {text}
             </button>
+            <input type="checkbox" name="check" onClick={handleCheckBox} />
         </div>
-    )
-}
+    );
+};
 export default Button;

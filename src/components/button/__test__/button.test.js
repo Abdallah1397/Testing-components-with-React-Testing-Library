@@ -12,3 +12,17 @@ test("button cases", () => {
         backgroundColor: "blue",
     });
 });
+
+test("Button status", () => {
+    render(<Button />);
+    // check that the button starts with enabled state
+    const buttonElement = screen.getByRole('button', { name: 'Change to blue' });
+    expect(buttonElement).toBeEnabled();
+
+    // check that the checkBox starts with unChecked box
+    const checkBoxElement = screen.getByRole('checkbox');
+    expect(checkBoxElement).not.toBeChecked();
+
+    fireEvent.click(checkBoxElement);
+    expect(buttonElement).not.toBeEnabled();
+})
