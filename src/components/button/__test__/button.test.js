@@ -14,7 +14,7 @@ test("button cases", () => {
 });
 
 test("Button status", () => {
-    render(<Button />);
+    render(<Button />)
     // check that the button starts with enabled state
     const buttonElement = screen.getByRole('button', { name: 'Change to blue' });
     expect(buttonElement).toBeEnabled();
